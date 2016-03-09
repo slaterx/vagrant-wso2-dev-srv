@@ -76,3 +76,11 @@ else
    wget http://repo1.maven.org/maven2/com/github/tomakehurst/wiremock/$VERSION/$FILE
 fi
 
+FILE=apache-activemq-5.12.1-bin.tar.gz
+
+if [ -f $FILE ];
+then
+   echo "'"$FILE"' already downloaded."
+else
+   wget http://www-us.apache.org/dist/activemq/5.12.1/apache-activemq-5.12.1-bin.tar.gz
+fi
