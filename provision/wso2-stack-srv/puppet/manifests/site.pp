@@ -127,14 +127,14 @@ class wso2greg {
 
 class activemq {
   class { '::activemq::untargzip_bundle':
-    bundle_name => 'apache-activemq-5.12.1-bin.tar.gz',
+    bundle_name => 'apache-activemq-5.12.3-bin.tar.gz',
     user_name => 'vagrant',
     group_name => 'vagrant'
   } -> 
 
   class { '::activemq::copy_files':
     server_name_array => ['activemq'],
-    bundle_name => 'apache-activemq-5.12.1',
+    bundle_name => 'apache-activemq-5.12.3',
     user_name => 'vagrant',
     group_name => 'vagrant'
   } -> 
@@ -144,7 +144,7 @@ class activemq {
   } -> 
 
   class { '::activemq::delete_temps':
-    bundle_name => 'apache-activemq-5.12.1',
+    bundle_name => 'apache-activemq-5.12.3',
     user_name => 'vagrant',
     group_name => 'vagrant'
   } 
