@@ -73,6 +73,33 @@ class wso2dss {
   }
 }
 
+class wso2as {
+
+  class { '::wso2as::unzip_bundle':
+    wso2_bundle_name => 'wso2as-5.2.1',
+    wso2_user_name => 'vagrant',
+    wso2_group_name => 'vagrant'
+  } ->
+
+  class { '::wso2as::copy_files':
+    wso2_server_name_array => ['wso2as521'],
+    wso2_bundle_name => 'wso2as-5.2.1',
+    wso2_user_name => 'vagrant',
+    wso2_group_name => 'vagrant'
+  } ->
+
+  class { '::wso2as::setup_carbon':
+    wso2_server_name_array => ['wso2as-5.2.1'],
+  } ->
+
+  class { '::wso2as::delete_temps':
+    wso2_bundle_name => 'wso2as-5.2.1',
+    wso2_user_name => 'vagrant',
+    wso2_group_name => 'vagrant'
+  }
+
+}
+
 class wso2greg {
   class { '::wso2greg::unzip_bundle':
     wso2_bundle_name => 'wso2greg-5.1.0',
@@ -169,6 +196,7 @@ file { '/home/vagrant/.bashrc':
 host {
   # Hostnames of WSO2 instances
   'wso2am02a': ip => '127.0.0.1';
+  'wso2as521': ip => '127.0.0.1';
   'wso2esb01a': ip => '127.0.0.1';
   'wso2esb02a': ip => '127.0.0.1';
   'wso2dss01a': ip => '127.0.0.1';
@@ -177,6 +205,7 @@ host {
 
   # Other hostnames ('f1' is front tier node 1, 'b1' is back tier node 1)
   'amb1': ip => '127.0.0.1';
+  'asf1': ip => '127.0.0.1';
   'esbf1': ip => '127.0.0.1';
   'esbb1': ip => '127.0.0.1';
   'dssf1': ip => '127.0.0.1';
@@ -184,6 +213,7 @@ host {
 
   # Virtual hostnames
   'wso2am02-vip': ip => '127.0.0.1';
+  'wso2as521-vip': ip => '127.0.0.1';
   'wso2esb01-vip': ip => '127.0.0.1';
   'wso2esb02-vip': ip => '127.0.0.1';
   'wso2dss01-vip': ip => '127.0.0.1';
@@ -191,6 +221,7 @@ host {
 
   # Other virtual hostname  ('f-vip' is front tier LB node, 'b-vip' is back tier LB node)
   'amb-vip': ip => '127.0.0.1';
+  'asf-vip': ip => '127.0.0.1';
   'esbf-vip': ip => '127.0.0.1';
   'esbb-vip': ip => '127.0.0.1';
   'dssf-vip': ip => '127.0.0.1';
@@ -207,6 +238,7 @@ file { "CREATING_SYMLINK_TO_DOWNLOADS":
 include wso2esb
 include wso2am
 include wso2dss
+include wso2as
 include wso2greg
 include activemq
 include wso2esb490
