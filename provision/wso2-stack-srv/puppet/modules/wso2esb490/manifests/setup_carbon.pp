@@ -16,11 +16,11 @@ class wso2esb490::setup_carbon (
       source => "/vagrant/provision/wso2-stack-srv/puppet/modules/${value}/files/${value}/${value}"
     } ~>
 
-    file { "COPY_LIBS_IN_${value}": 
-      path => "/opt/${value}/repository/components/lib",
-      recurse => true,
-      source => "/vagrant/_downloads/activemq_libs"
-    } ->
+#    file { "COPY_LIBS_IN_${value}": 
+#      path => "/opt/${value}/repository/components/lib",
+#      recurse => true,
+#      source => "/vagrant/_downloads/activemq_libs"
+#    } ->
 
     file { "COPY_WSO2_CARBONXML_IN_${value}": 
       path => "/opt/${value}/repository/conf/carbon.xml",

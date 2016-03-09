@@ -177,7 +177,7 @@ class wso2esb490 {
 
 class wiremock { 
   class { '::wiremock::set_wiremock': 
-    wiremock_bundle_name => 'wiremock-standalone-1.57-standalone.jar',
+    wiremock_bundle_name => 'wiremock-1.57-standalone.jar',
     wiremock_server_name => 'wiremock',
     wiremock_user_name => 'vagrant',
     wiremock_group_name => 'vagrant'
