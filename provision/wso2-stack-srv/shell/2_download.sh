@@ -25,6 +25,16 @@ else
    wget --user-agent="testuser" --referer="http://connect.wso2.com/wso2/getform/reg/new_product_download" http://dist.wso2.org/products/enterprise-service-bus/4.8.1/wso2esb-4.8.1.zip
 fi
 
+# AS 5.2.1
+FILE=wso2as-5.2.1.zip
+
+if [ -f $FILE ];
+then
+   echo "'"$FILE"' already downloaded."
+else
+   wget --user-agent="testuser" --referer="http://connect.wso2.com/wso2/getform/reg/new_product_download" http://product-dist.wso2.com/products/application-server/5.2.1/wso2as-5.2.1.zip
+fi
+
 # AM 1.8.0
 FILE=wso2am-1.8.0.zip
 
