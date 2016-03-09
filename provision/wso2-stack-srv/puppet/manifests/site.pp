@@ -76,24 +76,24 @@ class wso2dss {
 class wso2as {
 
   class { '::wso2as::unzip_bundle':
-    wso2_bundle_name => 'wso2as-5.2.1',
+    wso2as_bundle_name => 'wso2as-5.2.1',
     wso2_user_name => 'vagrant',
     wso2_group_name => 'vagrant'
   } ->
 
   class { '::wso2as::copy_files':
-    wso2_server_name_array => ['wso2as521'],
-    wso2_bundle_name => 'wso2as-5.2.1',
+    wso2as_server_name_array => ['wso2as521'],
+    wso2as_bundle_name => 'wso2as-5.2.1',
     wso2_user_name => 'vagrant',
     wso2_group_name => 'vagrant'
   } ->
 
   class { '::wso2as::setup_carbon':
-    wso2_server_name_array => ['wso2as-5.2.1'],
+    wso2as_server_name_array => ['wso2as521'],
   } ->
 
   class { '::wso2as::delete_temps':
-    wso2_bundle_name => 'wso2as-5.2.1',
+    wso2as_bundle_name => 'wso2as-5.2.1',
     wso2_user_name => 'vagrant',
     wso2_group_name => 'vagrant'
   }
@@ -177,7 +177,7 @@ class wso2esb490 {
 
 class wiremock { 
   class { '::wiremock::set_wiremock': 
-    wiremock_bundle_name => 'wiremock-standalone-2.0.8-beta.jar',
+    wiremock_bundle_name => 'wiremock-standalone-1.57-standalone.jar',
     wiremock_server_name => 'wiremock',
     wiremock_user_name => 'vagrant',
     wiremock_group_name => 'vagrant'

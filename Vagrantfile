@@ -42,8 +42,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     wso2devsrv.vm.network "forwarded_port", guest: 8282, host: 8282
     
     # AS 5.2.1 (offset +12)
-    wso2srv.vm.network "forwarded_port", guest: 9455, host: 9455
-    wso2srv.vm.network "forwarded_port", guest: 8292, host: 8292
+    wso2devsrv.vm.network "forwarded_port", guest: 9455, host: 9455
+    wso2devsrv.vm.network "forwarded_port", guest: 8292, host: 8292
 
     # DSS (offset +3)
     wso2devsrv.vm.network "forwarded_port", guest: 9446, host: 9446
@@ -91,6 +91,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         puppet.manifests_path = "provision/wso2-stack-srv/puppet/manifests"
         puppet.manifest_file  = "site.pp"
         puppet.module_path = "provision/wso2-stack-srv/puppet/modules"
+	puppet.options = '--parser future'
       end
     end
 
