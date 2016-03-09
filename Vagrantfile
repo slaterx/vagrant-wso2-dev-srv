@@ -18,6 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.sudo_command = "sudo %c"
   config.vm.synced_folder "_mnt_wso2am02a/", "/opt/wso2am02a", create: true
   config.vm.synced_folder "_mnt_wso2esb01a/", "/opt/wso2esb01a", create: true
+  config.vm.synced_folder "_mnt_wso2as521/", "/opt/wso2as521", create: true
   config.vm.synced_folder "_mnt_wso2esb02a/", "/opt/wso2esb02a", create: true
   config.vm.synced_folder "_mnt_wso2dss01a/", "/opt/wso2dss01a", create: true
   config.vm.synced_folder "_mnt_wiremock/", "/opt/wiremock", create: true
@@ -39,6 +40,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # ESB-02 (offset +2)
     wso2devsrv.vm.network "forwarded_port", guest: 9445, host: 9445
     wso2devsrv.vm.network "forwarded_port", guest: 8282, host: 8282
+    
+    # AS 5.2.1 (offset +12)
+    wso2srv.vm.network "forwarded_port", guest: 9455, host: 9455
+    wso2srv.vm.network "forwarded_port", guest: 8292, host: 8292
 
     # DSS (offset +3)
     wso2devsrv.vm.network "forwarded_port", guest: 9446, host: 9446
