@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 ### BEGIN INIT INFO
-# Provides:          wso2esb01a
+# Provides:          wso2as521
 # Required-Start:    $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
 # Default-Start:     2 3 4 5
@@ -10,7 +10,7 @@
 # Description:       Deamon service to start and stop server
 ### END INIT INFO
 
-PRODUCT_CODE="wso2esb01a"
+PRODUCT_CODE="wso2as521"
 USER="vagrant"
 PID_FILE="/opt/${PRODUCT_CODE}/wso2carbon.pid"
 CMD="/opt/${PRODUCT_CODE}/bin/wso2server.sh"
