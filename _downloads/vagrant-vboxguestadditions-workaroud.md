@@ -112,10 +112,10 @@ $ vagrant reload
 ==> wso2srv: Forcing shutdown of VM...
 ...
 ==> wso2srv: Mounting shared folders...
-    wso2srv: /vagrant => /Users/Chilcano/1github-repo/box-vagrant-wso2-dev-srv
-    wso2srv: /opt/wiremock => /Users/Chilcano/1github-repo/box-vagrant-wso2-dev-srv/_mnt_wiremock
-    wso2srv: /opt/wso2dss01a => /Users/Chilcano/1github-repo/box-vagrant-wso2-dev-srv/_mnt_wso2dss01a
-    wso2srv: /opt/wso2esb01a => /Users/Chilcano/1github-repo/box-vagrant-wso2-dev-srv/_mnt_wso2esb01a
+    wso2srv: /vagrant => ˜1github-repo/box-vagrant-wso2-dev-srv
+    wso2srv: /opt/wiremock => ˜1github-repo/box-vagrant-wso2-dev-srv/_mnt_wiremock
+    wso2srv: /opt/wso2dss01a => ˜1github-repo/box-vagrant-wso2-dev-srv/_mnt_wso2dss01a
+    wso2srv: /opt/wso2esb01a => ˜1github-repo/box-vagrant-wso2-dev-srv/_mnt_wso2esb01a
 ...
 ==> wso2srv: Machine already provisioned. Run `vagrant provision` or use the `--provision`
 ==> wso2srv: flag to force provisioning. Provisioners marked to run always will still run.
