@@ -1,16 +1,11 @@
 # Vagrant WSO2 Development Server Box
 
-> This Vagrant box was the older [box-vagrant-wso2-dev-srv](https://holisticsecurity.wordpress.com/2015/11/11/creating-a-vm-with-wso2-servers-for-development).
-> I have removed the rTail Puppet modules to create a new rTail server Docker Container.
-> The older GitHub repository for [box-vagrant-wso2-dev-srv](https://holisticsecurity.wordpress.com/2015/11/11/creating-a-vm-with-wso2-servers-for-development) will not be updated.
-> I recommend you using this new one, more lightweight and flexible.
-
 
 This VM is suitable to develop with WSO2 products and puts focus only in the `server side` (WSO2 servers, mock server and different tools to host our micro/services) and not in `desktop side` (Eclipse, SoapUI, Maven, etc.).
 The main objetive is to have a VM with all WSO2 products installed and configured to be ready for development and following the most common Middleware infrastructure pattern used to create (Micro)services.
 The `naming` used in `hostnames` tries to use pre-defined values what also will be used in Integration and Production Environments. The `ports` and `offsets` used do not follow any special rule.
 
-![Vagrant WSO2 Development Server Map](https://github.com/chilcano/vagrant-wso2-dev-srv/blob/master/_downloads/chilcano-vagrant-wso2-dev-srv-map.png "Vagrant WSO2 Development Server Map")
+![Vagrant WSO2 Development Server Map](https://github.com/slaterx/vagrant-wso2-dev-srv/blob/master/_downloads/chilcano-vagrant-wso2-dev-srv-map.png "Vagrant WSO2 Development Server Map")
 
 This VM tries to implement 2 tiers for the middleware and they are:
 
@@ -106,7 +101,7 @@ __Wiremock (as backend)__
 __1) Download the Vagrant scripts__
 
 ```
-$ git clone https://github.com/chilcano/vagrant-wso2-dev-srv.git
+$ git clone https://github.com/slaterx/vagrant-wso2-dev-srv.git
 $ cd ~/github-repo/vagrant-wso2-dev-srv
 ```
 
@@ -174,13 +169,12 @@ __6) Vagrant Global Status__
 If you want to know the state of all active Vagrant environments on the system for the currently logged in user, to use the follow:
 
 ```bash
-Chilcano@Pisc0 : ~/1github-repo/vagrant-wso2-dev-srv
 $ vagrant global-status
 id       name       provider   state    directory
 -------------------------------------------------------------------------------------------------------------------------
-02b5d3f  master     virtualbox poweroff /Users/Chilcano/1github-repo/shuttlecloud-docker-k8-workshop-20160116/kubernetes
-f4699ed  minion-1   virtualbox poweroff /Users/Chilcano/1github-repo/shuttlecloud-docker-k8-workshop-20160116/kubernetes
-2c03b60  wso2devsrv virtualbox running  /Users/Chilcano/1github-repo/vagrant-wso2-dev-srv
+02b5d3f  master     virtualbox poweroff 1github-repo/shuttlecloud-docker-k8-workshop-20160116/kubernetes
+f4699ed  minion-1   virtualbox poweroff 1github-repo/shuttlecloud-docker-k8-workshop-20160116/kubernetes
+2c03b60  wso2devsrv virtualbox running  1github-repo/vagrant-wso2-dev-srv
 
 The above shows information about all known Vagrant environments
 on this machine. This data is cached and may not be completely
@@ -270,34 +264,8 @@ This Vagrant box can be used as source of log events to feed or send them to oth
 I have used this Vagrant box to send log events of all WSO2 servers and Wiremock server to an ELK and rTail Server Docker container.
 This Vagrant box is prepared to send logs to ELK by using Filebeat and/or to rTail Server by broadcasting the log events as UDP traffic.
 
-Below, both strategies are explained.
-For rTail:
-- https://holisticsecurity.wordpress.com/2015/11/20/rtail-a-tool-to-collect-and-view-the-wso2-logs-in-a-browser
-For ELK:
-- https://holisticsecurity.wordpress.com/2016/01/19/log-events-management-wso2-microservices-elk-rtail-part-i
 
-
-## 6. Monitoring the Infrastructure
-
-_Soon I will use one of them: Riemann, Jolokia, CollectD/Graphite, Grafana, etc...._
-
-
-## 7. Deploying WSO2 C-App (car files) from Maven
-
-_Soon I will post further details how to do that._
-
-
-## 8. TODO
-
-- Load balancing and Virtual Hosts/IPs (HA Proxy or nginx)
-- Custom HealthCheck
-- Correlation propagation between WSO2 servers and Backend 
-- Custom Mediators (Authentication, Authorization, Logging, Correlation, Common Validations and Transformations)
-- ~~WSO2 services patterns deployed as samples~~ (Check It here: https://github.com/chilcano/wso2-ei-patterns)
-- ~~Docker~~ (Check It here: https://holisticsecurity.wordpress.com/2016/01/11/strategy-to-create-microservices-using-wso2-and-docker)
-
-
-## 9. Resources
+## 6. Resources
 
 - Puppet 3.4.3 (http://docs.puppetlabs.com/references/3.4.latest)
 - Enabling future parser in Puppet (http://blog.bluemalkin.net/iteration-in-puppet-using-the-future-parser)
@@ -307,7 +275,7 @@ _Soon I will post further details how to do that._
 - Vagrant Tip: Sync VirtualBox Guest Additions (http://kvz.io/blog/2013/01/16/vagrant-tip-keep-virtualbox-guest-additions-in-sync)
 
 
-## 10. Troubleshooting
+## 7. Troubleshooting
 
 1.- `Error: Cannot allocate memory - fork(2)`
 
@@ -334,7 +302,6 @@ This is because Puppet hasn't enable the `future parser`.
 To enable `future parser`in Puppet, just add this line `parser = future` to `/etc/puppet/puppet.conf`
 
 ```bash
-Chilcano@Pisc0 : ~/1github-repo/vagrant-wso2-dev-srv
 $ vagrant ssh
 Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.13.0-67-generic i686)
 
@@ -372,7 +339,6 @@ ssl_client_verify_header = SSL_CLIENT_VERIFY
 
 After that, restart your VM.
 ```bash
-Chilcano@Pisc0 : ~/1github-repo/vagrant-wso2-dev-srv
 $ vagrant reload --provision
 ```
 
@@ -383,9 +349,3 @@ Further details here: [https://www.virtualbox.org/ticket/12879](https://www.virt
 
 I have created a guide for you to fix that: [_downloads/vagrant-vboxguestadditions-workaroud.md](_downloads/vagrant-vboxguestadditions-workaroud.md)
 
-
-4.- `here your issue`
-
-```
-Drop me a message here chilcano =at= intix.info
-```
